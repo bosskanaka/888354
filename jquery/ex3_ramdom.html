@@ -1,0 +1,72 @@
+<head>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+</head>
+<style>
+body{
+    margin: auto;
+    width: 60%;
+    border: 3px solid #73AD21;
+    padding: 10px;
+    position: absolute;
+    text-align: center;
+    font-size: 18px;
+}
+
+
+</style>
+<body>
+<button id="getNumber">random number</button>
+<br>
+<br>
+<form>
+  <span id="result">0</span>
+  <span id="a"> +</span>
+  <span id="result2">0 =</span>
+  <span id="hidden"></span>
+</form>
+
+<div>
+  <input type="text" id="ans">
+  <button id="send"> SendAnswer </button>
+</div>
+
+<div>
+<p id="result1"> </p>
+</div>
+
+  <script>
+   $(document).ready(function(){
+    $("#getNumber").click(function(){
+
+		var number1= Math.floor(Math.random() * 100) + 1;
+		var number2= Math.floor(Math.random() * 100) + 1;
+
+		var sum = number1 + number2;
+
+		document.getElementById("result").innerHTML = number1;
+		document.getElementById("a").innerHTML = "+";
+		document.getElementById("result2").innerHTML = number2;
+		document.getElementById("hidden").value = sum;
+
+
+
+    });
+});
+
+	$(document).ready(function(){
+    $("#send").click(function(){
+        var hiden = document.getElementById("hidden").value;
+		var numberans = document.getElementById("ans").value;
+
+		if(numberans== hiden) {
+		  document.getElementById("result1").innerHTML = "สำเร็จนะจ๊ะเก่งมากๆๆ เลยย ค่าาาาาาา";
+       $("p").css("color", "green");
+		}else {
+			document.getElementById("result1").innerHTML = "โถถถถถถ คิดผิด คิดใหม่ๆๆๆๆ นะจ้าาาาาาา";
+       $("p").css("color", "red");
+		}
+    });
+});
+
+  </script>
+</body>
